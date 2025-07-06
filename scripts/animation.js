@@ -1,65 +1,66 @@
-// Animation for package cards
-document.addEventListener('DOMContentLoaded', function () {
-	const packages = document.querySelectorAll('.package');
+document.addEventListener('DOMContentLoaded', () => {
+	// Card data with MB values and target percentages
+	const cards = [
+		{
+			current: 10,
+			targetPercent: 0.4,
+			progressId: 'progressArc1',
+			labelId: 'data-used1',
+		},
+		{
+			current: 20,
+			targetPercent: 0.6,
+			progressId: 'progressArc2',
+			labelId: 'data-used2',
+		},
+		{
+			current: 50,
+			targetPercent: 0.9,
+			progressId: 'progressArc3',
+			labelId: 'data-used3',
+		},
+	];
 
-	// Add animate class after a short delay
-	setTimeout(() => {
-		packages.forEach((pkg) => {
-			pkg.classList.add('animate');
-		});
-	}, 300);
+	const pathLength = 283; // half circle length
+	const duration = 1200;
+	const fps = 60;
+	const totalFrames = duration / (1000 / fps);
 
-	// Tab switching functionality
-	const tabs = document.querySelectorAll('.tab');
-	tabs.forEach((tab) => {
-		tab.addEventListener('click', function () {
-			tabs.forEach((t) => t.classList.remove('active'));
-			this.classList.add('active');
-		});
-	});
+	// Initialize animations for all cards
+	cards.forEach((card) => {
+		const path = document.getElementById(card.progressId);
+		const label = document.getElementById(card.labelId);
 
-	// Button hover effect enhancement
-	const buttons = document.querySelectorAll('.btn');
-	buttons.forEach((button) => {
-		button.addEventListener('mouseenter', function () {
-			this.style.background = 'linear-gradient(to right, #7c3aed, #3b82f6)';
-		});
+		path.style.strokeDasharray = pathLength;
+		path.style.strokeDashoffset = pathLength;
 
-		button.addEventListener('mouseleave', function () {
-			this.style.background = 'linear-gradient(to right, #3b82f6, #7c3aed)';
-		});
+		let frame = 0;
 
-		button.addEventListener('click', function () {
-			const packageTitle =
-				this.closest('.package').querySelector('.package-title').textContent;
-			this.innerHTML = '<i class="fas fa-check"></i> SELECTED';
-			this.style.background = 'linear-gradient(to right, #10b981, #06b6d4)';
+		function animate() {
+			frame++;
+			const progress = frame / totalFrames;
 
-			// Reset other buttons after a delay
-			setTimeout(() => {
-				buttons.forEach((btn) => {
-					if (btn !== this) {
-						btn.innerHTML = 'GET STARTED';
-						btn.style.background =
-							'linear-gradient(to right, #3b82f6, #7c3aed)';
-					}
-				});
-			}, 2000);
-		});
-	});
+			// Calculate progress bar offset based on target percentage
+			const progressOffset = pathLength * (1 - progress * card.targetPercent);
 
-	// Package hover effect
-	packages.forEach((pkg) => {
-		pkg.addEventListener('mouseenter', function () {
-			const highlight = this.querySelector('.package-highlight');
-			highlight.style.opacity = '1';
-			highlight.style.transform = 'scale(1)';
-		});
+			// Calculate MB value to display
+			const mbValue = Math.round(progress * card.current);
 
-		pkg.addEventListener('mouseleave', function () {
-			const highlight = this.querySelector('.package-highlight');
-			highlight.style.opacity = '0';
-			highlight.style.transform = 'scale(0.5)';
-		});
+			path.style.strokeDashoffset = progressOffset;
+			label.textContent = `${mbValue} MB`;
+
+			if (frame < totalFrames) {
+				requestAnimationFrame(animate);
+			} else {
+				// Ensure final values are exact
+				path.style.strokeDashoffset = pathLength * (1 - card.targetPercent);
+				label.textContent = `${card.current} MB`;
+			}
+		}
+
+		// Start animation after a small delay for staggering effect
+		setTimeout(() => {
+			requestAnimationFrame(animate);
+		}, cards.indexOf(card) * 200);
 	});
 });
