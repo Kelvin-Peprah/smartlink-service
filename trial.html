@@ -1,415 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Broadband Package Selector</title>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-		/>
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Progress Containers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Internet Packages</h1>
+        <p>Choose the plan that fits your needs</p>
+    </header>
 
-			body {
-				background: linear-gradient(135deg, #0f172a, #1e293b);
-				color: #f8fafc;
-				min-height: 100vh;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 20px;
-			}
+    <div class="packages">
+        <!-- Basic Plan -->
+        <div class="card">
+            <div class="card-header">
+                <h4 class="plan">BASIC PLAN</h4>
+                <h2 class="title"><span class="highlight">ESSENTIAL</span> CONNECTION</h2>
+            </div>
 
-			.container {
-				max-width: 1200px;
-				width: 100%;
-				padding: 40px;
-			}
+            <div class="semi-circle-wrapper">
+                <svg class="semi-ring" viewBox="0 0 200 100">
+                    <path class="bg-arc" d="M10,100 A90,90 0 0,1 190,100" />
+                    <path class="progress-arc" id="progressArc1" d="M10,100 A90,90 0 0,1 190,100" />
+                </svg>
+                <div class="circle-label" id="data-used1">0 Mbps</div>
+                <div class="max-label">Max: 300 Mbps</div>
+            </div>
 
-			header {
-				text-align: center;
-				margin-bottom: 60px;
-			}
+            <div class="speed">
+                <div class="speed-item">
+                    <div class="speed-icon">↓</div>
+                    <p>100 Mbps</p>
+                </div>
+                <div class="speed-item">
+                    <div class="speed-icon">↑</div>
+                    <p>50 Mbps</p>
+                </div>
+            </div>
 
-			h1 {
-				font-size: 3.5rem;
-				margin-bottom: 20px;
-				background: linear-gradient(to right, #60a5fa, #8b5cf6);
-				-webkit-background-clip: text;
-				background-clip: text;
-				color: transparent;
-				position: relative;
-				display: inline-block;
-			}
+            <div class="price-section">
+                <p class="price">GH₵ 15 <span class="per">/DAY</span></p>
+            </div>
 
-			h1::after {
-				content: '';
-				position: absolute;
-				bottom: -10px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 80px;
-				height: 4px;
-				background: linear-gradient(to right, #60a5fa, #8b5cf6);
-				border-radius: 2px;
-			}
+            <button class="btn">GET STARTED</button>
+        </div>
 
-			.tabs {
-				display: flex;
-				justify-content: center;
-				margin-bottom: 40px;
-			}
+        <!-- Standard Plan -->
+        <div class="card">
+            <div class="card-header">
+                <h4 class="plan">STANDARD PLAN</h4>
+                <h2 class="title"><span class="highlight">PREMIUM</span> CONNECTION</h2>
+            </div>
 
-			.tab {
-				background: rgba(30, 41, 59, 0.7);
-				padding: 15px 40px;
-				border-radius: 50px;
-				font-size: 1.2rem;
-				font-weight: 600;
-				cursor: pointer;
-				transition: all 0.3s ease;
-				margin: 0 10px;
-				border: 2px solid #334155;
-			}
+            <div class="semi-circle-wrapper">
+                <svg class="semi-ring" viewBox="0 0 200 100">
+                    <path class="bg-arc" d="M10,100 A90,90 0 0,1 190,100" />
+                    <path class="progress-arc" id="progressArc2" d="M10,100 A90,90 0 0,1 190,100" />
+                </svg>
+                <div class="circle-label" id="data-used2">0 Mbps</div>
+                <div class="max-label">Max: 500 Mbps</div>
+            </div>
 
-			.tab.active {
-				background: linear-gradient(to right, #3b82f6, #7c3aed);
-				border-color: #818cf8;
-				box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
-			}
+            <div class="speed">
+                <div class="speed-item">
+                    <div class="speed-icon">↓</div>
+                    <p>250 Mbps</p>
+                </div>
+                <div class="speed-item">
+                    <div class="speed-icon">↑</div>
+                    <p>100 Mbps</p>
+                </div>
+            </div>
 
-			.tab:hover:not(.active) {
-				background: rgba(51, 65, 85, 0.7);
-			}
+            <div class="price-section">
+                <p class="price">GH₵ 25 <span class="per">/DAY</span></p>
+            </div>
 
-			.packages-container {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-				gap: 30px;
-				margin-top: 40px;
-			}
+            <button class="btn">GET STARTED</button>
+        </div>
 
-			.package {
-				background: rgba(30, 41, 59, 0.8);
-				border-radius: 20px;
-				padding: 40px 30px;
-				text-align: center;
-				position: relative;
-				overflow: hidden;
-				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-				transform: translateY(30px);
-				opacity: 0;
-				border: 1px solid #334155;
-				backdrop-filter: blur(10px);
-				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-			}
+        <!-- Premium Plan -->
+        <div class="card">
+            <div class="card-header">
+                <h4 class="plan">PREMIUM PLAN</h4>
+                <h2 class="title"><span class="highlight">ULTRA</span> CONNECTION</h2>
+            </div>
 
-			.package.animate {
-				transform: translateY(0);
-				opacity: 1;
-			}
+            <div class="semi-circle-wrapper">
+                <svg class="semi-ring" viewBox="0 0 200 100">
+                    <path class="bg-arc" d="M10,100 A90,90 0 0,1 190,100" />
+                    <path class="progress-arc" id="progressArc3" d="M10,100 A90,90 0 0,1 190,100" />
+                </svg>
+                <div class="circle-label" id="data-used3">0 Mbps</div>
+                <div class="max-label">Max: 1000 Mbps</div>
+            </div>
 
-			.package:nth-child(1) {
-				transition-delay: 0.1s;
-			}
-			.package:nth-child(2) {
-				transition-delay: 0.3s;
-			}
-			.package:nth-child(3) {
-				transition-delay: 0.5s;
-			}
+            <div class="speed">
+                <div class="speed-item">
+                    <div class="speed-icon">↓</div>
+                    <p>500 Mbps</p>
+                </div>
+                <div class="speed-item">
+                    <div class="speed-icon">↑</div>
+                    <p>200 Mbps</p>
+                </div>
+            </div>
 
-			.package:hover {
-				transform: translateY(-10px);
-				box-shadow: 0 15px 35px rgba(76, 81, 191, 0.3);
-				border-color: #6366f1;
-			}
+            <div class="price-section">
+                <p class="price">GH₵ 40 <span class="per">/DAY</span></p>
+            </div>
 
-			.package-badge {
-				position: absolute;
-				top: 20px;
-				right: 20px;
-				background: linear-gradient(to right, #3b82f6, #7c3aed);
-				color: white;
-				padding: 5px 15px;
-				border-radius: 20px;
-				font-size: 0.9rem;
-				font-weight: 600;
-			}
+            <button class="btn">GET STARTED</button>
+        </div>
+    </div>
 
-			.package-title {
-				font-size: 2rem;
-				margin-bottom: 20px;
-				color: #e0e7ff;
-			}
-
-			.package-features {
-				margin: 30px 0;
-				text-align: left;
-			}
-
-			.feature {
-				padding: 15px 0;
-				border-bottom: 1px solid #334155;
-				display: flex;
-				justify-content: space-between;
-			}
-
-			.feature:last-child {
-				border-bottom: none;
-			}
-
-			.feature-name {
-				color: #94a3b8;
-			}
-
-			.feature-value {
-				font-weight: 600;
-				color: #e0e7ff;
-			}
-
-			.speed-value {
-				font-size: 2.2rem;
-				font-weight: 700;
-				background: linear-gradient(to right, #60a5fa, #8b5cf6);
-				-webkit-background-clip: text;
-				background-clip: text;
-				color: transparent;
-			}
-
-			.price {
-				font-size: 2.8rem;
-				font-weight: 800;
-				margin: 20px 0 10px;
-				color: #e0e7ff;
-			}
-
-			.vat {
-				color: #94a3b8;
-				font-size: 0.9rem;
-				margin-bottom: 25px;
-			}
-
-			.btn {
-				background: linear-gradient(to right, #3b82f6, #7c3aed);
-				color: white;
-				border: none;
-				padding: 15px 30px;
-				font-size: 1.1rem;
-				font-weight: 600;
-				border-radius: 50px;
-				cursor: pointer;
-				transition: all 0.3s ease;
-				width: 100%;
-				max-width: 250px;
-				position: relative;
-				overflow: hidden;
-			}
-
-			.btn::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: -100%;
-				width: 100%;
-				height: 100%;
-				background: linear-gradient(
-					to right,
-					transparent,
-					rgba(255, 255, 255, 0.2),
-					transparent
-				);
-				transition: 0.5s;
-			}
-
-			.btn:hover::before {
-				left: 100%;
-			}
-
-			.btn:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
-			}
-
-			.package-highlight {
-				position: absolute;
-				top: -50px;
-				right: -50px;
-				width: 150px;
-				height: 150px;
-				border-radius: 50%;
-				background: radial-gradient(
-					circle,
-					rgba(99, 102, 241, 0.3),
-					transparent 70%
-				);
-				z-index: -1;
-			}
-
-			.package:nth-child(2) {
-				background: rgba(15, 23, 42, 0.9);
-				border: 1px solid #4f46e5;
-				transform: scale(1.05) translateY(30px);
-			}
-
-			.package:nth-child(2).animate {
-				transform: scale(1.05) translateY(0);
-			}
-
-			.package:nth-child(2):hover {
-				transform: scale(1.05) translateY(-10px);
-			}
-
-			.package:nth-child(2) .package-badge {
-				background: linear-gradient(to right, #f59e0b, #f97316);
-			}
-
-			.package:nth-child(3) .package-badge {
-				background: linear-gradient(to right, #10b981, #06b6d4);
-			}
-
-			.feature-icon {
-				width: 40px;
-				height: 40px;
-				background: rgba(99, 102, 241, 0.2);
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin: 0 auto 20px;
-			}
-
-			.feature-icon i {
-				color: #818cf8;
-				font-size: 1.2rem;
-			}
-
-			.package:nth-child(2) .feature-icon {
-				background: rgba(245, 158, 11, 0.2);
-			}
-
-			.package:nth-child(2) .feature-icon i {
-				color: #f59e0b;
-			}
-
-			.package:nth-child(3) .feature-icon {
-				background: rgba(16, 185, 129, 0.2);
-			}
-
-			.package:nth-child(3) .feature-icon i {
-				color: #10b981;
-			}
-
-			@media (max-width: 768px) {
-				.packages-container {
-					grid-template-columns: 1fr;
-				}
-
-				.package:nth-child(2) {
-					transform: translateY(30px);
-				}
-
-				.package:nth-child(2).animate {
-					transform: translateY(0);
-				}
-
-				.package:nth-child(2):hover {
-					transform: translateY(-10px);
-				}
-
-				h1 {
-					font-size: 2.5rem;
-				}
-			}
-
-			footer {
-				text-align: center;
-				margin-top: 60px;
-				color: #64748b;
-				font-size: 0.9rem;
-			}
-		</style>
-	</head>
-	<body>
-		
-
-		<script>
-			// Animation for package cards
-			document.addEventListener('DOMContentLoaded', function () {
-				const packages = document.querySelectorAll('.package');
-
-				// Add animate class after a short delay
-				setTimeout(() => {
-					packages.forEach((pkg) => {
-						pkg.classList.add('animate');
-					});
-				}, 300);
-
-				// Tab switching functionality
-				const tabs = document.querySelectorAll('.tab');
-				tabs.forEach((tab) => {
-					tab.addEventListener('click', function () {
-						tabs.forEach((t) => t.classList.remove('active'));
-						this.classList.add('active');
-					});
-				});
-
-				// Button hover effect enhancement
-				const buttons = document.querySelectorAll('.btn');
-				buttons.forEach((button) => {
-					button.addEventListener('mouseenter', function () {
-						this.style.background =
-							'linear-gradient(to right, #7c3aed, #3b82f6)';
-					});
-
-					button.addEventListener('mouseleave', function () {
-						this.style.background =
-							'linear-gradient(to right, #3b82f6, #7c3aed)';
-					});
-
-					button.addEventListener('click', function () {
-						const packageTitle =
-							this.closest('.package').querySelector(
-								'.package-title'
-							).textContent;
-						this.innerHTML = '<i class="fas fa-check"></i> SELECTED';
-						this.style.background =
-							'linear-gradient(to right, #10b981, #06b6d4)';
-
-						// Reset other buttons after a delay
-						setTimeout(() => {
-							buttons.forEach((btn) => {
-								if (btn !== this) {
-									btn.innerHTML = 'GET STARTED';
-									btn.style.background =
-										'linear-gradient(to right, #3b82f6, #7c3aed)';
-								}
-							});
-						}, 2000);
-					});
-				});
-
-				// Package hover effect
-				packages.forEach((pkg) => {
-					pkg.addEventListener('mouseenter', function () {
-						const highlight = this.querySelector('.package-highlight');
-						highlight.style.opacity = '1';
-						highlight.style.transform = 'scale(1)';
-					});
-
-					pkg.addEventListener('mouseleave', function () {
-						const highlight = this.querySelector('.package-highlight');
-						highlight.style.opacity = '0';
-						highlight.style.transform = 'scale(0.5)';
-					});
-				});
-			});
-		</script>
-	</body>
+    <script src="script.js"></script>
+</body>
 </html>
