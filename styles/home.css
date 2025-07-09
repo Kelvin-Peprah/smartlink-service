@@ -218,8 +218,8 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 35px;
-	padding: 45px;
+	gap: 30px;
+	padding: 45px 10px;
 }
 
 .sectionTitle {
@@ -234,7 +234,7 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 40px;
+	gap: 20px;
 	max-width: 1200px;
 	width: 100%;
 }
@@ -242,7 +242,7 @@ header {
 .card {
 	background: white;
 	border-radius: 20px;
-	padding: 2rem;
+	padding: 20px;
 	width: 100%;
 	max-width: 350px;
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -376,6 +376,7 @@ header {
 .speed-item {
 	text-align: center;
 	flex: 1;
+	padding: 10px;
 }
 
 .speed-icon {
@@ -386,7 +387,7 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 0 auto 10px;
+	margin: 0 auto;
 	font-size: 1.5rem;
 	color: #4a2ed6;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -401,6 +402,13 @@ header {
 
 .price-section {
 	margin-bottom: 20px;
+}
+
+.line {
+	height: 1.5px;
+	background-color: #0305411a;
+	width: 80%;
+	margin: 10px auto;
 }
 
 .price {
@@ -492,6 +500,11 @@ header {
 			font-size: 13px;
 			padding: 10px;
 		}
+		/* 	.container2 {
+
+			background: #100122 url('../images/pcboy.jpg') center center / cover
+
+		} */
 
 		/* section 2 */
 
@@ -510,26 +523,51 @@ header {
 	}
 }
 
-#section3 {
+#section3,
+#section4 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 35px;
-	padding: 45px;
+	padding: 80px 45px;
 }
 
 #section3 image {
-	width: 100%;
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.image img {
+	max-width: 100%;
+	height: auto;
+	display: block;
 }
 
 .sec3div {
 	width: 540px;
 }
-.sec3div h3 {
+.sec3div h3,
+.sec4div h3 {
 	font-size: 35px;
 	font-weight: 600;
 }
+.sec4div h3 {
+	font-size: 35px;
+	font-weight: 600;
+	text-align: center;
+}
 
-.sec3div p {
+.sec3div p,
+.sec4div p {
 	line-height: 30px;
+	text-align: justify;
+}
+
+.sec4div {
+	display: flex;
+	align-content: start;
+	align-items: center;
+	flex-direction: column;
+	gap: 30px;
+	max-width: 460px;
 }
