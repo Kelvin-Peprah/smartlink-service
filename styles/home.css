@@ -23,6 +23,7 @@ body {
 	color: var(--dark);
 	background-color: #f1f5f9;
 	line-height: 1.6;
+	height: 4000px;
 }
 
 .logo {
@@ -551,7 +552,8 @@ header {
 	font-size: 35px;
 	font-weight: 600;
 }
-.sec4div h3 {
+.sec4div h3,
+#section5 h3 {
 	font-size: 35px;
 	font-weight: 600;
 	text-align: center;
@@ -570,4 +572,41 @@ header {
 	flex-direction: column;
 	gap: 30px;
 	max-width: 460px;
+}
+
+
+#section5{
+	padding: 20px;
+}
+.container5 {
+	background: #100122 url('../images/background.jpg') center center / cover
+		no-repeat;
+	height: 325px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 120px;
+	border-radius: 16px;
+	max-width: 1420px;
+	margin: auto;
+	gap: 30px;
+}
+
+#section5 p {
+	font-size: 18px;
+	text-align: center;
+	height: 73px;
+}
+
+.container2 {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+
+	background: #100122 url('../images/pcboy.jpg') center center / cover no-repeat;
+	max-width: 1420px;
+	margin: auto;
 }
