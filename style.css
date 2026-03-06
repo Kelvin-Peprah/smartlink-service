@@ -309,7 +309,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 .nav {
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	height: 80px;
 }
 
@@ -317,6 +317,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	display: flex;
 	align-items: center;
 	gap: 12px;
+    margin-right: 35px;
 }
 
 .logo-img {
@@ -353,6 +354,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 .nav__link.active {
 	color: var(--white);
 	background: rgba(255, 255, 255, 0.1);
+	padding: 10px 18px;
 }
 
 .nav__actions {
@@ -492,7 +494,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 .hero__title {
-	font-size: clamp(2.5rem, 6vw, 4.5rem);
+	/* font-size: clamp(2.5rem, 6vw, 4.5rem); */
 	font-weight: 900;
 	color: var(--white);
 	line-height: 1.1;
@@ -1188,8 +1190,8 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	font-weight: 700;
 	color: var(--dark);
 	margin-bottom: 16px;
-    margin-top: 15px;
-    text-align: center;
+	margin-top: 15px;
+	text-align: center;
 }
 
 .service-card__description {
@@ -1360,7 +1362,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	color: var(--secondary);
 }
 
-.pricing__note {
+/* .pricing__note {
 	text-align: center;
 	padding: 20px;
 	background: rgba(255, 107, 53, 0.1);
@@ -1407,7 +1409,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 .recharge-box a {
 	color: var(--secondary-light);
 	text-decoration: underline;
-}
+} */
 
 /* ===================================
    Why Choose Us Section
@@ -1555,7 +1557,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	background: var(--gradient-primary);
 	border-radius: var(--radius);
 	margin-top: 30px;
-    text-align: center;
+	text-align: center;
 }
 
 .about__quote p {
@@ -1823,7 +1825,6 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	align-items: center;
 	gap: 12px;
 	margin-bottom: 20px;
-    
 }
 
 .footer__logo img {
@@ -2007,52 +2008,6 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
    Responsive Design
    =================================== */
 @media (max-width: 1024px) {
-	.nav__menu {
-		position: fixed;
-		top: 0;
-		right: -100%;
-		width: 80%;
-		max-width: 400px;
-		height: 100vh;
-		background: var(--dark);
-		padding: 100px 40px 40px;
-		transition: var(--transition-slow);
-		z-index: 1001;
-	}
-
-	.nav__menu.show-menu {
-		right: 0;
-	}
-
-	.nav__list {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.nav__link {
-		font-size: 1.25rem;
-		padding: 15px 0;
-	}
-
-	.nav__close {
-		display: block;
-		position: absolute;
-		top: 30px;
-		right: 30px;
-	}
-
-	.nav__toggle {
-		display: block;
-	}
-
-	.nav__call {
-		display: none;
-	}
-
-	.nav__actions .btn {
-		display: none;
-	}
-
 	.hero__container {
 		grid-template-columns: 1fr;
 		text-align: center;
@@ -2107,6 +2062,67 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 @media (max-width: 768px) {
 	:root {
 		--section-padding: 60px 0;
+	}
+
+	.nav {
+		justify-content: space-between;
+        padding: 0 30px;
+	}
+
+	.nav__menu {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 80%;
+		max-width: 400px;
+		height: 100vh;
+		background: var(--gradient-hero);
+		padding: 100px 40px 40px;
+		transition: var(--transition-slow);
+		z-index: 1001;
+	}
+
+	.nav__menu.show-menu {
+		right: 0;
+	}
+
+	.nav__list {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 15px;
+	}
+
+	.nav__link {
+		font-size: 1.25rem;
+		padding: 10px 18px;
+	}
+
+	.nav__close {
+		display: block;
+		position: absolute;
+		top: 30px;
+		right: 30px;
+	}
+
+	.nav__toggle {
+		display: block;
+	}
+
+	.nav__call {
+		display: none;
+	}
+
+	.nav__actions .btn {
+		display: none;
+	}
+
+	/* intro header */
+	.expin {
+		font-size: 40px;
+	}
+
+	.highlight {
+		font-size: 40px;
 	}
 
 	.features-bar__grid {
