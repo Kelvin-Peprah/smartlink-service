@@ -1,5 +1,5 @@
 /**
- * The Cloud Network Limited - Main JavaScript
+ * Smartlink Services Inc. - Main JavaScript
  * Ghana's Most Trusted Wireless ISP
  */
 
