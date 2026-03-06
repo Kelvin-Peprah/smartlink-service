@@ -28,9 +28,9 @@ function initHeroSlider() {
 
 	// Icons for each slide
 	const icons = [
-		'fa-home', // Home Unlimited
-		'fa-building', // Office Unlimited
-		'fa-database', // Non-Expiry Data
+		'fa-home', // Daily Unlimited
+		'fa-building', // Weekly Unlimited
+		'fa-database', // Monthly Unlimited
 		'fa-network-wired', // Managed Network Support
 		'fa-shield-alt', // Guaranteed Uptime
 	];

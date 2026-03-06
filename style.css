@@ -57,7 +57,7 @@
 	);
 
 	/* Typography */
-	--font-primary: 'Outfit', sans-serif;
+	--font-primary: 'quicksand', sans-serif;
 	--font-secondary: 'Space Grotesk', sans-serif;
 
 	/* Shadows */
@@ -106,7 +106,7 @@ html {
 
 body {
 	font-family: var(--font-primary);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.7;
 	color: var(--gray-700);
 	background: var(--white);
@@ -289,7 +289,7 @@ button {
 	left: 0;
 	width: 100%;
 	z-index: 1000;
-	background: rgba(10, 22, 40, 0.95);
+	background: var(--gradient-hero);
 	backdrop-filter: blur(20px);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	transition: var(--transition);
@@ -298,6 +298,13 @@ button {
 .header.scrolled {
 	box-shadow: var(--shadow-lg);
 }
+
+/*for glass-like scrolled*/
+/* #header.scrolled{
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.9);
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+} */
 
 .nav {
 	display: flex;
@@ -1577,8 +1584,8 @@ button {
 
 .about__image-wrapper img {
 	width: 100%;
-	height: 500px;
-	object-fit: cover;
+	height: 600px;
+	object-fit: fit;
 }
 
 .about__image-overlay {
@@ -1819,12 +1826,11 @@ button {
 	display: flex;
 	align-items: center;
 	gap: 12px;
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .footer__logo img {
 	width: 180px;
-	
 }
 
 .footer__logo span {
