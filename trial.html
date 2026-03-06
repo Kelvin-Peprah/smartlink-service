@@ -1,121 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Progress Containers</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="header">
-        <h1>Internet Packages</h1>
-        <p>Choose the plan that fits your needs</p>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Floating Phone Button</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
 
-    <div class="packages">
-        <!-- Basic Plan -->
-        <div class="card">
-            <div class="card-header">
-                <h4 class="plan">BASIC PLAN</h4>
-                <h2 class="title"><span class="highlight">ESSENTIAL</span> CONNECTION</h2>
-            </div>
+			/* Floating Phone Button */
+			.floating-btn {
+				position: fixed;
+				bottom: 30px;
+				right: 30px;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				background: linear-gradient(135deg, #15440c, #38761d);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				box-shadow: 0 0 15px #a4da9a, 0 0 30px #a4da9a;
+				z-index: 1000;
+				overflow: hidden;
+				animation: pulseGlow 2s infinite;
+			}
 
-            <div class="semi-circle-wrapper">
-                <svg class="semi-ring" viewBox="0 0 200 100">
-                    <path class="bg-arc" d="M10,100 A90,90 0 0,1 190,100" />
-                    <path class="progress-arc" id="progressArc1" d="M10,100 A90,90 0 0,1 190,100" />
-                </svg>
-                <div class="circle-label" id="data-used1">0 Mbps</div>
-                <div class="max-label">Max: 300 Mbps</div>
-            </div>
+			/* Phone icon styling */
+			.floating-btn i {
+				color: white;
+				font-size: 28px;
+				z-index: 2;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+			}
 
-            <div class="speed">
-                <div class="speed-item">
-                    <div class="speed-icon">↓</div>
-                    <p>100 Mbps</p>
-                </div>
-                <div class="speed-item">
-                    <div class="speed-icon">↑</div>
-                    <p>50 Mbps</p>
-                </div>
-            </div>
+			/* Glowing animation */
+			@keyframes pulseGlow {
+				0% {
+					transform: scale(1);
+					box-shadow: 0 0 10px #a4da9a, 0 0 20px #a4da9a;
+				}
+				50% {
+					transform: scale(1.05);
+					box-shadow: 0 0 20px #a4da9a, 0 0 40px #a4da9a, 0 0 60px #a4da9a;
+				}
+				100% {
+					transform: scale(1);
+					box-shadow: 0 0 10px #a4da9a, 0 0 20px #a4da9a;
+				}
+			}
 
-            <div class="price-section">
-                <p class="price">GH₵ 15 <span class="per">/DAY</span></p>
-            </div>
+			/* Background pulse effect */
+			.pulse-ring {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background: rgba(3, 107, 43, 0.3);
+				animation: pulseRing 2s infinite;
+				z-index: 1;
+			}
 
-            <button class="btn">GET STARTED</button>
-        </div>
+			.pulse-ring:nth-child(2) {
+				animation-delay: 0.5s;
+			}
 
-        <!-- Standard Plan -->
-        <div class="card">
-            <div class="card-header">
-                <h4 class="plan">STANDARD PLAN</h4>
-                <h2 class="title"><span class="highlight">PREMIUM</span> CONNECTION</h2>
-            </div>
+			.pulse-ring:nth-child(3) {
+				animation-delay: 1s;
+			}
 
-            <div class="semi-circle-wrapper">
-                <svg class="semi-ring" viewBox="0 0 200 100">
-                    <path class="bg-arc" d="M10,100 A90,90 0 0,1 190,100" />
-                    <path class="progress-arc" id="progressArc2" d="M10,100 A90,90 0 0,1 190,100" />
-                </svg>
-                <div class="circle-label" id="data-used2">0 Mbps</div>
-                <div class="max-label">Max: 500 Mbps</div>
-            </div>
+			@keyframes pulseRing {
+				0% {
+					transform: scale(1);
+					opacity: 0.7;
+				}
+				100% {
+					transform: scale(1.8);
+					opacity: 0;
+				}
+			}
 
-            <div class="speed">
-                <div class="speed-item">
-                    <div class="speed-icon">↓</div>
-                    <p>250 Mbps</p>
-                </div>
-                <div class="speed-item">
-                    <div class="speed-icon">↑</div>
-                    <p>100 Mbps</p>
-                </div>
-            </div>
+			/* Call animation for visual feedback */
+			.call-animation {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background: rgba(76, 175, 80, 0.5);
+				z-index: 3;
+				animation: callRing 0.5s forwards;
+			}
 
-            <div class="price-section">
-                <p class="price">GH₵ 25 <span class="per">/DAY</span></p>
-            </div>
+			@keyframes callRing {
+				0% {
+					transform: scale(0);
+					opacity: 0.7;
+				}
+				100% {
+					transform: scale(2);
+					opacity: 0;
+				}
+			}
 
-            <button class="btn">GET STARTED</button>
-        </div>
+			/* Call notification */
+			.call-notification {
+				position: fixed;
+				bottom: 120px;
+				right: 30px;
+				background: white;
+				color: #333;
+				padding: 15px 25px;
+				border-radius: 50px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+				font-weight: 600;
+				transform: translateY(20px);
+				opacity: 0;
+				transition: all 0.3s ease;
+				z-index: 999;
+			}
 
-        <!-- Premium Plan -->
-        <div class="card">
-            <div class="card-header">
-                <h4 class="plan">PREMIUM PLAN</h4>
-                <h2 class="title"><span class="highlight">ULTRA</span> CONNECTION</h2>
-            </div>
+			.floating-btn:hover + .call-notification {
+				opacity: 1;
+				transform: translateY(0);
+			}
 
-            <div class="semi-circle-wrapper">
-                <svg class="semi-ring" viewBox="0 0 200 100">
-                    <path class="bg-arc" d="M10,100 A90,90 0 0,1 190,100" />
-                    <path class="progress-arc" id="progressArc3" d="M10,100 A90,90 0 0,1 190,100" />
-                </svg>
-                <div class="circle-label" id="data-used3">0 Mbps</div>
-                <div class="max-label">Max: 1000 Mbps</div>
-            </div>
+			/* Responsive design */
+			@media (max-width: 768px) {
+				.floating-btn {
+					width: 60px;
+					height: 60px;
+					bottom: 20px;
+					right: 20px;
+				}
 
-            <div class="speed">
-                <div class="speed-item">
-                    <div class="speed-icon">↓</div>
-                    <p>500 Mbps</p>
-                </div>
-                <div class="speed-item">
-                    <div class="speed-icon">↑</div>
-                    <p>200 Mbps</p>
-                </div>
-            </div>
+				.floating-btn i {
+					font-size: 24px;
+				}
 
-            <div class="price-section">
-                <p class="price">GH₵ 40 <span class="per">/DAY</span></p>
-            </div>
+				.call-notification {
+					bottom: 100px;
+					right: 20px;
+					padding: 12px 20px;
+					font-size: 14px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Floating Button -->
+		<div class="floating-btn" id="callButton">
+			<div class="pulse-ring"></div>
+			<div class="pulse-ring"></div>
+			<div class="pulse-ring"></div>
+			<i class="fas fa-phone"></i>
+		</div>
 
-            <button class="btn">GET STARTED</button>
-        </div>
-    </div>
+		<!-- Call Notification -->
+		<div class="call-notification">Click to call our support team!</div>
 
-    <script src="script.js"></script>
-</body>
+		<script>
+			// Add click functionality to the button
+			const callButton = document.getElementById('callButton');
+
+			callButton.addEventListener('click', function () {
+				// Create a visual feedback effect
+				this.style.animation = 'none';
+				this.style.transform = 'scale(0.9)';
+
+				// Create call animation
+				const callAnimation = document.createElement('div');
+				callAnimation.classList.add('call-animation');
+				this.appendChild(callAnimation);
+
+				// Remove animation element after it completes
+				setTimeout(() => {
+					callAnimation.remove();
+				}, 500);
+
+				// Restore button animation after 200ms
+				setTimeout(() => {
+					this.style.animation = 'pulseGlow 2s infinite';
+					this.style.transform = 'scale(1)';
+				}, 200);
+
+				// Show calling message
+				const notification = document.querySelector('.call-notification');
+				notification.textContent = 'Calling support...';
+				notification.style.background = '#4CAF50';
+				notification.style.color = 'white';
+
+				// Reset after delay
+				setTimeout(() => {
+					notification.textContent = 'Click to call our support team!';
+					notification.style.background = 'white';
+					notification.style.color = '#333';
+				}, 3000);
+
+				// Initiate phone call
+				window.location.href = 'tel:+17747013223';
+			});
+		</script>
+	</body>
 </html>
