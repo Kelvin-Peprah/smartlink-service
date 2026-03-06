@@ -317,7 +317,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	display: flex;
 	align-items: center;
 	gap: 12px;
-    margin-right: 35px;
+	margin-right: 35px;
 }
 
 .logo-img {
@@ -1818,6 +1818,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	grid-template-columns: 1.5fr 1fr 1fr 1fr;
 	gap: 50px;
 	margin-bottom: 60px;
+	align-items: start;
 }
 
 .footer__logo {
@@ -1836,6 +1837,15 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	font-size: 1.375rem;
 	font-weight: 700;
 	color: var(--white);
+}
+
+.footer__brand,
+.footer__links,
+.footer__contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .footer__brand p {
@@ -2066,7 +2076,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 
 	.nav {
 		justify-content: space-between;
-        padding: 0 30px;
+		padding: 0 30px;
 	}
 
 	.nav__menu {
@@ -2161,6 +2171,10 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	.footer__social {
 		justify-content: center;
 	}
+
+    .footer-menu{
+        display: none;
+    }
 
 	.footer__bottom {
 		flex-direction: column;
