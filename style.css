@@ -1,5 +1,5 @@
 /* ===================================
-   The Cloud Network Limited - Main Stylesheet
+   The Smartlink Services Inc. - Main Stylesheet
    Ghana's Most Trusted Wireless ISP
    =================================== */
 
@@ -73,7 +73,7 @@
 
 	/* Border Radius */
 	--radius-sm: 6px;
-	--radius: 12px;
+	--radius: 30px;
 	--radius-lg: 20px;
 	--radius-xl: 28px;
 	--radius-full: 9999px;
@@ -217,7 +217,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	padding: 14px 32px;
+	padding: 15px 10px;
 	font-family: var(--font-secondary);
 	font-size: 1rem;
 	font-weight: 600;
@@ -272,7 +272,7 @@ button {
 }
 
 .btn--lg {
-	padding: 18px 40px;
+	padding: 15px 35px;
 	font-size: 1.125rem;
 }
 
@@ -391,7 +391,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	align-items: center;
 	background: var(--gradient-hero);
 	overflow: hidden;
-	padding-top: 80px;
+	padding-top: 90px;
 }
 
 .hero__bg {
@@ -501,6 +501,15 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 
 .hero__title-line {
 	display: block;
+	margin-bottom: 15px;
+}
+
+.expin {
+	font-size: 55px;
+}
+
+.highlight {
+	font-size: 50px;
 }
 
 .hero__title .highlight {
@@ -1114,22 +1123,6 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 /* ===================================
-   Ad Container (Google AdSense Ready)
-   =================================== */
-.ad-container {
-	padding: 30px 20px;
-}
-
-.ad-placeholder {
-	min-height: 90px;
-	background: var(--gray-100);
-	border-radius: var(--radius);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-/* ===================================
    Services Section
    =================================== */
 .services {
@@ -1182,7 +1175,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 24px;
+	margin: 0 auto;
 }
 
 .service-card__icon i {
@@ -1195,6 +1188,8 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	font-weight: 700;
 	color: var(--dark);
 	margin-bottom: 16px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .service-card__description {
@@ -1560,6 +1555,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	background: var(--gradient-primary);
 	border-radius: var(--radius);
 	margin-top: 30px;
+    text-align: center;
 }
 
 .about__quote p {
@@ -1810,7 +1806,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
    Footer
    =================================== */
 .footer {
-	background: var(--dark);
+	background: var(--gradient-hero);
 	color: rgba(255, 255, 255, 0.7);
 	padding: 80px 0 30px;
 }

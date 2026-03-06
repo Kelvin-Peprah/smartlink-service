@@ -304,7 +304,7 @@ function initFormValidation() {
 			} catch (error) {
 				console.error('Form submission error:', error);
 				showFormMessage(
-					'Network error. Please try calling us at 0202699110.',
+					'Network error. Please try calling us at 0555299335.',
 					'error',
 				);
 			} finally {
@@ -519,14 +519,14 @@ if ('serviceWorker' in navigator) {
 /**
  * Analytics tracking helper (placeholder for Google Analytics)
  */
-function trackEvent(category, action, label) {
+/* function trackEvent(category, action, label) {
 	if (typeof gtag !== 'undefined') {
 		gtag('event', action, {
 			event_category: category,
 			event_label: label,
 		});
 	}
-}
+} */
 
 // Track CTA clicks
 document.querySelectorAll('.btn').forEach((btn) => {
@@ -550,4 +550,4 @@ document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
 	});
 });
 
-console.log('The Cloud Network Limited - Website Loaded Successfully');
+console.log('Smartlink Services Inc. - Website Loaded Successfully');
