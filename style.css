@@ -198,7 +198,7 @@ button {
 	font-size: clamp(2rem, 5vw, 3rem);
 	font-weight: 800;
 	color: var(--dark);
-	margin-bottom: 20px;
+	margin: 20px 0;
 	line-height: 1.2;
 }
 
@@ -2156,7 +2156,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 	}
 
 	.about__highlights {
-		flex-direction: column;
+		flex-direction: row;
 	}
 
 	.contact__info {
@@ -2172,9 +2172,9 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 		justify-content: center;
 	}
 
-    .footer-menu{
-        display: none;
-    }
+	.footer-menu {
+		display: none;
+	}
 
 	.footer__bottom {
 		flex-direction: column;
