@@ -206,7 +206,7 @@ button {
 	font-size: 1.125rem;
 	color: var(--gray-600);
 	line-height: 1.8;
-	text-align: center;
+	text-align: justify;
 }
 
 /* ===================================
